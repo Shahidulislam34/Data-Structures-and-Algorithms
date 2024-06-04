@@ -22,7 +22,15 @@ int main(){
         }
         cout<<endl;
     }
+
     int x1, y1, x2, y2;
     cin >> x1 >> y1>> x2 >>y2;
+    ///only for uper left corner = (x1, y1) & bottom right corner = (x2, x2):
+    cout<<pre[x2][y2] - pre[x2][y1-1] - pre[x1-1][y2] + pre[x1-1][y1-1]<<endl;
+
+    ///sum of rectangle for any case:
+    if (x1 > x2) swap(x1, x2), swap(y1, y2);
+    if (y1 > y2) swap(y1, y2);
+
     cout<<pre[x2][y2] - pre[x2][y1-1] - pre[x1-1][y2] + pre[x1-1][y1-1]<<endl;
 }
