@@ -12,4 +12,6 @@ int main(){
     int a, b;
     cin >> a >> b;
     cout << (pre[b] ^ pre[a-1]) << endl;
+
+    ///try to get xor of a rectangle something similar to 2D prefix sum
 }

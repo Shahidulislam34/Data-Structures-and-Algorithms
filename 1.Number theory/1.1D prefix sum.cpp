@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 int main(){
-    ///for 1 base
+    ///for 1 base indexing
     int n;cin>>n;
     vector<int>v(n+5), pre(n+5,0);
     for(int i=1; i<=n; ++i)cin>>v[i];
