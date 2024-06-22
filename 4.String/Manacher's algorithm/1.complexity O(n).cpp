@@ -4,7 +4,7 @@
 #include<math.h>
 using namespace std;
 
-///LPS starts.......only for zero base string
+///LPS starts.....complexity O(n).....only for zero base string
 pair<int, int> LPS(string s){
     string str;
     str.push_back('#');
