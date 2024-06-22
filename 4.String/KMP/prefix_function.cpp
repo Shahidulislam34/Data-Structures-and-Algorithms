@@ -14,26 +14,15 @@ void pre_fun(string P){
         else pi[i] = now = -1;
     }
 }
-
-bool kmp(string T, string P){
-    int n = T.size(), m = P.size();
-    int now = -1;
-    for (int i = 0; i < n; ++i){
-        while(now != -1 && P[now + 1] != T[i]) now = pi[now];
-        if (P[now + 1] == T[i]) ++now;
-        else now = -1;
-        if (now == m - 1) return true;
-    }
-    return false;
-}
 ///kmp ends
 
 int main(){
-    string T, P;
-    cin >> T >> P;
+    string P;
+    cin >> P;
     pre_fun(P);
-    if (kmp(T, P)) cout << "Exist" << endl;
-    else cout << "Not exist" << endl;
+    int n = P.size();
+    for (int i = 0; i < n; ++i) cout << pi[i] << ' '; cout << endl;
     return 0;
 }
+
 
