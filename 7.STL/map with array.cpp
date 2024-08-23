@@ -5,6 +5,6 @@ int main(){
     int n;
     cin >> n;
     const int m = n;
-    map<array<int, const int(m)>, int>mp;
-
+    map<array<int, 3>, int>mp;
+    mp[{1,2,3}] = 12;
 }

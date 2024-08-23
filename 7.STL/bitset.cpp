@@ -21,7 +21,7 @@ int main() {
     bs1[1] = 1;
     bs1[8] = 1;
     bs1.set(0);
-    bs1.reset(1);
+    bs1.reset(0);
     cout << bs1 << endl;
 
 

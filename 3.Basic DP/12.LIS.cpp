@@ -22,14 +22,16 @@ int32_t main(){
     }
     int len=*max_element(dp+1, dp+n+1);
     cout << len << endl;
+    for (int i = 1; i <= n; ++i) cout << dp[i] << ' '; cout << endl;
 
     string seq;
-    int cnt=1;
-    for(int i=1; i<=n; ++i){
+    int cnt=len;
+    for(int i=n; i>=1; --i){
         if(dp[i]==cnt){
             seq.push_back(str[i]);
-            ++cnt;
+            --cnt;
         }
     }
+    reverse(seq.begin(), seq.end());
     cout << seq << endl;
 }
