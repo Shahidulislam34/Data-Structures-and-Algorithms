@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-///dsu starts ----
+///dsu starts----
 const int N = 2e5;
 int n, e;
 vector<int>rep(N + 5);
