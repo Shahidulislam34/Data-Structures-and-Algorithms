@@ -2,47 +2,47 @@
 #include<vector>
 using namespace std;
 
-///SEGMENT TREE STARTS-----O(nlogn)-----one base indexing
+///Segment tree---O(nlogn)---one base
 const int N = 2e5;
-vector<int>V(N + 5), TREE(4 * N + 5), PROP(4 * N + 5, 0);
+vector<int>V(N + 5), Tree(4 * N + 5), Prop(4 * N + 5, 0);
 void init_tree(int cn, int li, int ri){
     if (li == ri){
-        TREE[cn] = V[li];
+        Tree[cn] = V[li];
         return;
     }
     int mid = (li + ri) / 2;
     int ln = cn * 2, rn = cn * 2 + 1;
     init_tree(ln, li, mid);
     init_tree(rn, mid + 1, ri);
-    TREE[cn] = TREE[ln] + TREE[rn];
+    Tree[cn] = Tree[ln] + Tree[rn];
 }
 
 void update_tree(int cn, int li, int ri, int a, int b, int val){
     if (ri < a || li > b) return;
     else if (a <= li && ri <= b){
-        TREE[cn] += (ri - li + 1) * val;
-        PROP[cn] += val;
+        Tree[cn] += (ri - li + 1) * val;
+        Prop[cn] += val;
         return;
     }
     int mid = (li + ri) / 2;
     int ln = 2 * cn, rn = 2 * cn + 1;
     update_tree(ln, li, mid, a, b, val);
     update_tree(rn, mid + 1, ri, a, b, val);
-    TREE[cn] = TREE[ln] + TREE[rn] + PROP[cn] * (ri - li + 1);
+    Tree[cn] = Tree[ln] + Tree[rn] + Prop[cn] * (ri - li + 1);
 }
 
-int get_val(int cn, int li, int ri, int a, int b, int car){
+int get_tree(int cn, int li, int ri, int a, int b, int car){
     if (ri < a || li > b) return 0;
     else if (a <= li && ri <= b){
-        return TREE[cn] + car * (ri - li + 1);
+        return Tree[cn] + car * (ri - li + 1);
     }
     int mid = (li + ri) / 2;
     int ln = 2 * cn, rn = 2 * cn + 1;
-    int s1 = get_val(ln, li, mid, a, b, car + PROP[cn]);
-    int s2 = get_val(rn, mid + 1, ri, a, b, car + PROP[cn]);
+    int s1 = get_tree(ln, li, mid, a, b, car + Prop[cn]);
+    int s2 = get_tree(rn, mid + 1, ri, a, b, car + Prop[cn]);
     return s1 + s2;
 }
-///SEGMENT TREE ENDS-------
+///Segment tree---
 
 
 int main() {
@@ -58,7 +58,7 @@ int main() {
             update_tree(1, 1, n, a, b, val);
         }
         else {
-            cout << get_val(1, 1, n, a, b, 0) << endl;
+            cout << get_tree(1, 1, n, a, b, 0) << endl;
         }
     }
     return 0;

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-///ordered_set------zero base index-----only for 'int' data type
+///ordered_set------zero base index-----
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
@@ -31,7 +31,7 @@ int main(){
 
     ///number of element that strictly less than k:
     cout << os.order_of_key(4) << endl;
-    cout << os.order_of_key(1) << endl;
+    cout << os.order_of_key(7) << endl;
 
     ///lower_bound:
     cout << *os.lower_bound(3) << endl;
