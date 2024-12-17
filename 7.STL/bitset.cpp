@@ -54,7 +54,6 @@ int main() {
     unsigned long val2 = bs1.to_ulong();
     cout << val2 << endl;
 
-
     ///bitset to string
     string str = bs1.to_string();
     cout << str << endl;

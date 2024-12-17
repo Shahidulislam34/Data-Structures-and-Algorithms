@@ -5,7 +5,7 @@ using namespace std;
 ///articulation point starts----O(n + e)-----
 const int N = 1e5;
 vector<int>gra[N + 5], dis(N + 5), low(N + 5), tot(N + 5);
-bool vis[N + 5];
+bool vis[N + 5], art[N + 5];
 int timer = 0, res = 0, n, e;
 
 void dfs(int par, int anc){
@@ -40,6 +40,7 @@ int32_t main(){
     for (int i = 1; i <= n; ++i) cout << dis[i] << ' '; cout << endl;
     for (int i = 1; i <= n; ++i) cout << low[i] << ' '; cout << endl;
     for (int i = 1; i <= n; ++i) cout << tot[i] << ' '; cout << endl;
+    cout << res << endl;
 
     return 0;
 }

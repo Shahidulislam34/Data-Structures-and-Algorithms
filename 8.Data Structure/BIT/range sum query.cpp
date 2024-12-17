@@ -5,7 +5,7 @@ using namespace std;
 #define endl '\n'
 #define faster() ios_base::sync_with_stdio(false);cin.tie(NULL); cout.tie(NULL);
 
-///BIT-----1 base index
+///BIT-----1 base
 const int N = 2e5;
 vector<int>bit(N + 5);
 int n, q;

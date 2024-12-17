@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-///dsu starts----
+///Dsu starts----
 const int N = 2e5;
 int n, e;
 vector<int>rep(N + 5);
@@ -20,7 +20,7 @@ void update_rep(int a, int b) {
     int rp2 = find_rep(b);
     rep[rp1] = rp2;
 }
-///dsu ends------
+///Dsu ends------
 
 int main() {
     cin >> n >> e;
