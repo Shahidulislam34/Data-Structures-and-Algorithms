@@ -1,29 +1,50 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int main(){
-    int n;
-    cin >> n;
-    vector<int> v(n + 5);
-    for(int i = 1; i <= n; ++i) v[i] = i;
-    vector<bool> bul(n + 5, false);
-    for (int i = 2; i * i <= n; ++i){
-        if (bul[i] == 0){
-            for (int j = i * i; j <= n; j += i){
-                v[j] = min(v[j], i);
-                bul[j] = 1;
+
+///prime factorization from 1 to n----
+const int N = (int)1e6;
+vector<int>Spf(N + 1);
+vector<pair<int, int>>Pf[N + 1];
+
+void spf(int nn) {
+    vector<bool> bul(nn + 1, false);
+    for (int i = 1; i <= nn; ++i) Spf[i] = i;
+    for (int i = 2; i * i <= nn; ++i){
+        if (bul[i] == false){
+            for (int j = i * i; j <= nn; j += i){
+                Spf[j] = min(Spf[j], i);
+                bul[j] = true;
             }
         }
     }
-    for(int i = 2; i <= n; ++i){
-        int val=i;
-        vector<int> fac;
+}
+
+void pf(int nn) {
+    spf(nn);
+    for(int i = 2; i <= nn; ++i){
+        int val = i, cnt = 0, factor = Spf[i];
         while(val > 1){
-            fac.push_back(v[val]);
-            val /= v[val];
+            if (Spf[val] != factor) {
+                Pf[i].push_back({factor, cnt});
+                cnt = 0;
+                factor = Spf[val];
+            }
+            val /= Spf[val];
+            ++cnt;
         }
-        cout << "Prime factors of " << i << ':';
-        for(auto x: fac)cout << x << ' ';
-        cout << endl;
+        Pf[i].push_back({factor, cnt});
     }
+}
+///prime factorization ends----
+
+int main(){
+     int n; cin >> n;
+     pf(n);
+     for (int i = 1; i <= n; ++i) {
+        cout << "i:" << i << endl;
+        for (auto [x, y] : Pf[i]) cout << x << ' ' << y << endl;;
+        cout << endl;
+     }
+
 }

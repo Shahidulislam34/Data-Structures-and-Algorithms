@@ -1,21 +1,28 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
+///sieve----nloglogn
+vector<int>prime;
+void sieve(int nn) {
+    vector<bool>vis(nn + 5, false);
+    if (nn >= 2) prime.push_back(2);
+    for (int i = 3; i * i <= nn; i += 2) {
+        if (!vis[i]) {
+            for (int j = i * i; j <= nn; j += 2 * i)
+                vis[j] = true;
+        }
+    }
+    for (int i = 3; i <= nn; i += 2) {
+        if (vis[i] == false) prime.push_back(i);
+    }
+}
+///sieve----
+
 int main(){
     int n;
     cin >> n;
-    vector<int> v(n+5);
-    vector<bool> bul(n+5,false);
-    for(int i=3; i*i<=n; i+=2){
-        if(bul[i] == 0){
-            for(int j=i*i; j<=n; j+=2*i)
-                bul[j]=1;
-        }
-    }
-    vector<int> prim;
-    prim.push_back(2);
-    for(int i=3; i<=n; i+=2){
-        if(bul[i] == 0)prim.push_back(i);
-    }
-    for(auto x:prim)cout << x << ' '; cout << endl;
+    sieve(n);
+    for (auto x : prime) cout << x << ' '; cout << endl;
+    return 0;
 }
