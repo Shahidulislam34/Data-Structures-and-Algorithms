@@ -2,9 +2,9 @@
 using namespace std;
 #define int long long
 #define endl '\n'
-
-///mobius starts----nlogn
 const int N = (int)1e7;
+
+///mobius----nlogn
 vector<int>Mob(N + 1);
 void mobius(int nn) {
     for (int i = 1; i <= nn; ++i) Mob[i] = 1;
@@ -20,7 +20,7 @@ void mobius(int nn) {
         }
     }
 }
-///mobius ends----
+///mobius----
 
 int32_t main() {
     int n; cin >> n;
