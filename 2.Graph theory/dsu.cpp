@@ -3,10 +3,8 @@
 using namespace std;
 
 ///Dsu starts----
-const int N = 2e5;
-int n, e;
-vector<int>rep(N + 5);
-void init_rep() {
+vector<int>rep;
+void init_rep(int n) {
     for (int i = 1; i <= n; ++i) rep[i] = i;
 }
 
@@ -23,8 +21,10 @@ void update_rep(int a, int b) {
 ///Dsu ends------
 
 int main() {
+    int n, e;
     cin >> n >> e;
-    init_rep();
+    rep.resize(n + 5);
+    init_rep(n);
     while(e--) {
         int a, b;
         cin >> a >> b;
