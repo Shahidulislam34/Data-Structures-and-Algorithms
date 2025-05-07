@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
-    int arr[] = {2, 3, 1};
+    int arr[] = {1, 2, 3};
     // sort(arr, arr + 3);
 
     for (int i = 0; i < 3; ++i) cout << arr[i] << ' '; cout << endl;
