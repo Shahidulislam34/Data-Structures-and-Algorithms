@@ -20,7 +20,6 @@ void ways(int cn){
             node[cn].white*=node[x].white+node[x].black;
             node[cn].black*=node[x].white;
         }
-
     }
 }
 

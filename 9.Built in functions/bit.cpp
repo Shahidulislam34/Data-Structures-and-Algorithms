@@ -9,7 +9,7 @@ int main() {
     cout << "position of leading one: " << (int) log2(n) << endl;
     cout << "position of trailing one: " << (int)log2(n & (-n)) << endl;
 
-    cout << "for leading one power value: " << (n & (-n)) << endl;
+    cout << "for trailing one power value: " << (n & (-n)) << endl;
 
 
     return 0;

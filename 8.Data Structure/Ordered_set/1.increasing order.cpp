@@ -9,7 +9,6 @@ template <typename T> using o_set = tree<T, null_type,
 less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 ///ordered_set-------
 
-
 int main(){
     ///initialization:
     o_set<int>os;

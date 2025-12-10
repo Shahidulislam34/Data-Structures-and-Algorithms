@@ -25,7 +25,7 @@ int main(){
         pre_fun(i);
         for (int j = 0; j < n - i; ++j) cout << PI[j] << ' '; cout << endl;
         int mx = -1;
-        for (int j = i; j < n; ++j) mx = max(mx, PI[j]);
+        for (int j = 0; j <= i; ++j) mx = max(mx, PI[j]);
         res += (n - i - (mx + 1));
     }
     cout << res << endl;

@@ -16,7 +16,7 @@ int main() {
     cout << floor(sqrtl(lli)) << endl;
     cout << floor(cbrt(lli)) << endl;
     cout << abs(lli) << endl;
-    cout << log(lli) << endl;
+    cout << log(lli) << endl;//e base
     cout << log10(lli) << endl;
     cout << floor(log2(lli)) << endl;
     cout << sin((lli * pi) / 180) << endl;
@@ -36,5 +36,16 @@ int main() {
     cout << (180 * asin(dd)) / pi << endl;
     cout << (180 * acos(dd)) / pi << endl;
     cout << (180 * atan(dd)) / pi << endl;
+
+    int aa = 11111, bb = 3444;
+     __int128 cc = (__int128)aa * bb;
+    //don't print it
+    string mul;
+    while(cc) {
+        mul.push_back(cc % 10 + '0');
+        cc /= 10;
+    }
+    reverse(mul.begin(), mul.end());
+    cout << mul << endl;
 
 }

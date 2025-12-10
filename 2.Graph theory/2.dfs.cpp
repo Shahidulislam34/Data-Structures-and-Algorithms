@@ -5,7 +5,6 @@ using namespace std;
 const int N=1e5;
 vector<int>grp[N+5];
 bool vis[N+5];
-
 void dfs(int cn){
     vis[cn]=1;
     cout<< cn << ' ';

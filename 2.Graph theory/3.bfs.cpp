@@ -2,11 +2,11 @@
 #include<vector>
 #include<queue>
 using namespace std;
+
 const int N=1e5;
 vector<int>grp[N+5];
 bool vis[N+5];
 int lev[N+5];
-
 void bfs(int cn){
     vis[cn]=1;
     queue<int>que;

@@ -26,6 +26,8 @@ int query(int idx) {
     return sum;
 }
 ///BIT----
+update(ind, val);
+val = query(b) - query(a - 1);
 
 void sol(){
     cin >> n >> q;

@@ -2,6 +2,7 @@
 using namespace std;
 #define int long long int
 #define endl '\n'
+
 ///HASHING STARTS--------------Only for zero base string
 const int B1 = 283, B2 = 293, M1 = 1e9 + 87, M2 = 1e9 + 93, N = 2e5;
 pair<int, int>PRE[N + 5], POW[N + 5], IPOW[N + 5];

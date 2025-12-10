@@ -3,7 +3,8 @@ using namespace std;
 int main()
 {
     deque<int>dq;
-
+    deque<int>dqq[10];
+    deque<int>dqqq[10][10];
     ///push_back()
     dq.push_back(3);//O(1)
     dq.push_back(4);

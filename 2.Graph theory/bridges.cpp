@@ -3,9 +3,10 @@ using namespace std;
 #define int long long
 #define endl '\n'
 
-///articulation point starts----O(n + e)-----node starts from 1
+///bridges----O(n + e)-----node starts from 1
 vector<vector<int>>gra;
-vector<int>dis, low, art;
+vector<int>dis, low;
+vector<pair<int, int>>br;
 int timer = 0;
 void dfs(int cn, int anc = 0){
     dis[cn] = low[cn] = ++timer;
@@ -15,11 +16,11 @@ void dfs(int cn, int anc = 0){
         else {
             dfs(chi, cn);
             low[cn] = min(low[cn], low[chi]);
-            if (dis[cn] <= low[chi] && (dis[cn] > 1 || dis[chi] > 2)) art[cn] = 1;
+            if (dis[cn] < low[chi]) br.emplace_back(cn, chi);
         }
     }
 }
-///articulation point ends------
+///bridges------
 
 int32_t main(){
     ios_base::sync_with_stdio(false);
@@ -30,7 +31,6 @@ int32_t main(){
     gra.resize(n + 5);
     dis.assign(n + 5, 0);
     low.assign(n + 5, 0);
-    art.assign(n + 5, 0);
     for (int i = 1; i <= n; ++i) gra[i].clear();
     while(e--){
         int a, b;
@@ -38,9 +38,10 @@ int32_t main(){
         gra[a].push_back(b);
         gra[b].push_back(a);
     }
-    dfs(1);//root -> 1
-    cout << "Articulation points:" << endl;
-    for (int i = 1; i <= n; ++i) if (art[i]) cout << i << ' '; cout << endl;
+    dfs(1);
+    cout << "Bridges:" << endl;
+    for (auto [uu, vv] : br) cout << uu << ' ' << vv << endl;
 
     return 0;
 }
+

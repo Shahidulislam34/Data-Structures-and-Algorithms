@@ -6,13 +6,13 @@ using namespace std;
 #define faster() ios_base::sync_with_stdio(false);cin.tie(NULL); cout.tie(NULL);
 const int M1 = (int)1e9 + 7;
 const int M2 = 998244353;
-const int N = 2e6;
+const int N = 2e5;
 const int Inf = 1e18;
 int Dx[] = {-1, 0, 1, 0};
 int Dy[] = {0, 1, 0, -1};
 
 ///catalan numbers----from 1 to n----nlogn
-vector<int>Fac(N + 5), Inv(N + 5), Cat(N + 5);
+vector<int>Fac(N + 5), Inv(N + 5);
 int mod_exp(int base, int power, int M) {
     int res = 1;
     while(power) {
@@ -26,21 +26,23 @@ void prec(int nn) {
     Fac[0] = 1;
     for (int i = 1; i <= nn; ++i)
         Fac[i] = (Fac[i - 1] % M1 * i % M1) % M1;
-    for (int i = 0; i <= nn; ++i)
-        Inv[i] = mod_exp(Fac[i], M1 - 2, M1);
+    Inv[nn] = mod_exp(Fac[nn], M1 - 2, M1);
+    for (int i = nn - 1; i >= 0; --i)
+        Inv[i] = (1ll * Inv[i + 1] * (i + 1)) % M1;
 }
 
-void cat(int nn) {
-    prec(nn);
-    for (int i = 1; i <= nn / 2; ++i)
-        Cat[i] = (((Fac[2 * i] % M1 * Inv[i] % M1) % M1) * (Inv[i + 1] % M1)) % M1;
+int cat(int nn) {
+    return (((Fac[2 * nn] * Inv[nn]) % M1) * Inv[nn + 1]) % M1;
 }
 ///catalan numbers----
 
 int32_t main(){
-    faster();
-    cat(N);
-    for (int i = 1; i <= 10; ++i) cout << Cat[i] << ' '; cout << endl;
+//    faster();
+    prec(N);
+    while(1) {
+        int n; cin >> n;
+        cout << cat(n) << endl;
+    }
     return 0;
 }
 

@@ -1,9 +1,9 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-const int N = (int)1e6;
 
 ///phi function from 1 to n----nlogn
+const int N = (int)1e6;
 vector<int>Phi(N + 5);
 void phi(int nn) {
     for (int i = 1; i <= nn; ++i) Phi[i] = i;

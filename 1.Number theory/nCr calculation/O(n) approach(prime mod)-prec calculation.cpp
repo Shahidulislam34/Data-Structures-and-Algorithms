@@ -26,14 +26,13 @@ void prec(int nn) {
 }
 
 int nCr(int nn, int rr) {
-    if (nn < 0 || rr < 0) return 0;
-    if (nn < rr) swap(nn, rr);
+    if (nn < 0 || rr < 0 || nn < rr) return 0;
     return ((Fac[nn] * Inv[nn - rr]) % M1 * Inv[rr]) % M1;
 }
 ///nCr----
 
 void sol(){
-    ///calculate the value of nCr % M = ?. M always prime & 1 <= n <= 1e6.
+    ///calculate the value of nCr % M = ?. M always prime & 1 <= n,r <= 1e6.
     prec(N);
 
     ///query = O(1)

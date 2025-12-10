@@ -9,7 +9,6 @@ void sol() {
     for (int i = 1; i <= n; ++i) {
         cin >> v[i];
     }
-
     vector<int>tmp;
     vector<int>pre(n + 5, -1);
     tmp.push_back(-1);
@@ -35,7 +34,6 @@ void sol() {
         }
     }
     reverse(seq.begin(), seq.end());
-
     cout << (int)seq.size() << endl;
     for (auto x : seq) cout << x << ' '; cout << endl;
 }
