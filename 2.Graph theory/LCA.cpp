@@ -25,7 +25,6 @@ int lca(int a, int b) {
     return up[a][0];
 }
 ///Lca ends----
-
 void sol(){
     int n, e; cin >> n >> e;
     tree.resize(n + 5);
@@ -34,7 +33,6 @@ void sol(){
         tree[uu].push_back(vv);
         tree[vv].push_back(uu);
     }
-
     dep.resize(n + 5, -1);
     up.assign(n + 5, vector<int>(lg + 5, 0));
     dfs(1);//root 1
@@ -44,9 +42,7 @@ void sol(){
         int a, b; cin >> a >> b;
         cout << lca(a, b) << endl;
     }
-
 }
-
 int32_t main(){
     faster();
     int tt = 1;

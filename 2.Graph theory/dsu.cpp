@@ -5,6 +5,7 @@ using namespace std;
 ///Dsu starts----
 vector<int>rep;
 void init_rep(int n) {
+    rep.clear();
     rep.resize(n + 5);
     for (int i = 1; i <= n; ++i) rep[i] = i;
 }

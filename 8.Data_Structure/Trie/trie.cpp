@@ -61,4 +61,5 @@ int32_t main() {
         cout << "Number of prefix:" << root.count_pref(str) << endl;
     }
 
+    return 0;
 }

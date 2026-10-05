@@ -1,18 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
-#define double long double
-#define ff first
-#define ss second
-#define endl '\n'
-#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL); cout.tie(NULL);
-const int M1 = (int)1e9 + 7;
-const int M2 = 998244353;
 const int N = (int)3e5;
 const int Inf = (int)1e18;
-const double pi = acos(-1.0);
-int Dx[] = {-1, 0, 1, 0};
-int Dy[] = {0, 1, 0, -1};
 
 vector<int>dis(N + 5, Inf);
 void dijkstra(int n, int src, vector<pair<int, int>>gra[]) {

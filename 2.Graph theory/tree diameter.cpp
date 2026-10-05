@@ -38,8 +38,3 @@ int32_t main(){
     while(tt--) sol();
     return 0;
 }
-
-
-
-
-

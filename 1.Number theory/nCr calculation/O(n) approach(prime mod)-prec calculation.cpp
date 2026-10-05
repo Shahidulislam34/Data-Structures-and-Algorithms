@@ -46,7 +46,3 @@ int32_t main(){
     sol();
     return 0;
 }
-
-
-
-

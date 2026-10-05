@@ -20,8 +20,8 @@ void init_tree(int cn, int li, int ri){
 void update_tree(int cn, int li, int ri, int a, int b, int val){
     if (ri < a || li > b) return;
     else if (a <= li && ri <= b){
+        Tree[cn] += (ri - li + 1) * val;
         Prop[cn] += val;
-        if (Prop[cn] % 2 == 1) swap(Tree[cn][0], Tree[cn][2]), swap(Tree[cn][1], Tree[cn][3]);
         return;
     }
     int mid = (li + ri) / 2;

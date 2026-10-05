@@ -14,7 +14,7 @@ void sol() {
     tmp.push_back(-1);
     int ind = 0;
     for (int i = 1; i <= n; ++i) {
-        auto it = upper_bound(tmp.begin(), tmp.end(), v[i]);
+        auto it = lower_bound(tmp.begin(), tmp.end(), v[i]);
         if (it == tmp.end()) {
             tmp.push_back(v[i]);
             ++ind;

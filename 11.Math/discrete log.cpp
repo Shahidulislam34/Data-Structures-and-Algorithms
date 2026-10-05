@@ -13,34 +13,37 @@ int Dy[] = {0, 1, 0, -1};
 
 int dis_log(int a, int b, int m) {
     a %= m; b %= m;
-    int n = sqrtl(m) + 1;
-    unordered_map<int, int>dan;//min solution
+    if (b == 1) return 0;
+    int n = sqrtl(m);//n is fixed, length of portions
+    unordered_map<int, int>jiant;
     int mul = b;
     for (int q = 0; q < n; ++q) {
-        dan[mul] = q;
+        jiant[mul] = q;
         mul = (1ll * mul * a) % m;
     }
     mul = 1;
     for (int i = 1; i <= n; ++i) {
         mul = (1ll * mul * a) % m;
     }
-    int bam = mul;
-    for (int p = 1; p <= n; ++p) {
-        if (dan.find(bam) != dan.end()) {
-            return (n * p - dan[bam]);
+    int baby = mul;
+    for (int p = 1; p <= n + 1; ++p) {
+        if (jiant.find(baby) != jiant.end()) {
+            return (n * p - jiant[baby]);
         }
-        bam = (1ll * bam * mul) % m;
+        baby = (1ll * baby * mul) % m;
     }
     return -1;
 }
 
 void sol(int ttt){
-    int a, x, b, m; cin >> a >> b >> m;
-    cout << dis_log(a, b, m) << endl;
+    int a, b, m; cin >> a >> b >> m;//if a^x = b (mod m) then x = ?
+    //if gcd(a, m) == 1,then always atleast one x is exist.otherwise exist or not.
+    int x = dis_log(a, b, m);
+    cout << x << endl;
 }
 
 int32_t main(){
-    faster();
+//    faster();
     //freopen("lcm.in", "r", stdin);
     int ttt = 1;
     cin >> ttt;
